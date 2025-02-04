@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.login.R
 
 
+
 class MovieFragment : Fragment() {
 
     private lateinit var movieRecyclerView: RecyclerView
@@ -21,10 +22,10 @@ class MovieFragment : Fragment() {
         // Initialize the RecyclerView
         movieRecyclerView = view.findViewById(R.id.recyclerViewMovies)
 
-        // Set the LayoutManager to GridLayoutManager with 2 columns per row
+        // Setetting the LayoutManager to GridLayoutManager with 2 columns per row
         movieRecyclerView.layoutManager = GridLayoutManager(context, 2)
 
-        // Set the Adapter to the RecyclerView
+        // Settinf the Adapter to the RecyclerView
         val adapter = MovieAdapter(getMovies())
         movieRecyclerView.adapter = adapter
 
@@ -33,6 +34,6 @@ class MovieFragment : Fragment() {
 
     // Sample data for movies
     private fun getMovies(): List<Movie> {
-        return List(14) { Movie("Movie ${it + 1}", "3.5.${it + 0.1}", "English/Telugu/Hindi") }
+        return List(14) { Movie("Movie ${it + 1}", "3.${it + 1}", "English/Telugu/Hindi") }
     }
 }
