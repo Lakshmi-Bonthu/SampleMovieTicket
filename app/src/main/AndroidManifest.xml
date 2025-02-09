@@ -26,10 +26,10 @@
         </activity> <!-- LoginActivity is accessed after the splash screen -->
         <activity
             android:name=".LoginActivity"
-            android:exported="false" /> <!-- RegistrationActivity is accessed from LoginActivity -->
+            android:exported="true" /> <!-- RegistrationActivity is accessed from LoginActivity -->
         <activity
             android:name=".RegistrationActivity"
-            android:exported="false" /> <!-- HomeActivity is the main screen after successful login -->
+            android:exported="true" /> <!-- HomeActivity is the main screen after successful login -->
         <activity
             android:name=".HomeActivity"
             android:exported="true" />

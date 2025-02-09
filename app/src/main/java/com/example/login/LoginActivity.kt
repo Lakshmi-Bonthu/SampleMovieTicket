@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
@@ -13,7 +14,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var edtName: EditText
     private lateinit var edtPassword: EditText
     private lateinit var btnLogin: Button
-    private lateinit var btnRegister: Button
+    private lateinit var tv_Register: TextView
     private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +24,7 @@ class LoginActivity : AppCompatActivity() {
         edtName = findViewById(R.id.edtName)
         edtPassword = findViewById(R.id.edtPassword)
         btnLogin = findViewById(R.id.btnLogin)
-        btnRegister = findViewById(R.id.btnRegister)
+        tv_Register = findViewById(R.id.tv_Register)
 
         sharedPreferences = getSharedPreferences("UserPrefs", MODE_PRIVATE)
 
@@ -46,7 +47,7 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        btnRegister.setOnClickListener {
+        tv_Register.setOnClickListener {
             val intent = Intent(this, RegistrationActivity::class.java)
             startActivity(intent)
         }
