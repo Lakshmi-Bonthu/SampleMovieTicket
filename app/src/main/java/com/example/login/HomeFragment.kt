@@ -9,37 +9,36 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.login.Category
-import com.example.login.Movie
 import com.example.login.R
-import com.example.login.RecommendedMoviesAdapter
-import com.example.login.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
 
     private lateinit var recommendedRecyclerView: RecyclerView
     private lateinit var categoriesRecyclerView: RecyclerView
+    private lateinit var titleText: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentHomeBinding.inflate(inflater, container, false)
+        val view = inflater.inflate(R.layout.fragment_home, container, false)
+
+        // Find views using findViewById
+        titleText = view.findViewById(R.id.entertainmentTitle)
+        recommendedRecyclerView = view.findViewById(R.id.recommendedRecyclerView)
+        categoriesRecyclerView = view.findViewById(R.id.categoriesRecyclerView)
 
         // Set up the title text
-        val titleText: TextView = binding.entertainmentTitle
         titleText.text = "Entertainment Time"
 
         // Set up RecyclerViews
-        recommendedRecyclerView = binding.recommendedRecyclerView
         recommendedRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         recommendedRecyclerView.adapter = RecommendedMoviesAdapter(getRecommendedMovies())
 
-        categoriesRecyclerView = binding.categoriesRecyclerView
         categoriesRecyclerView.layoutManager = GridLayoutManager(context, 2)
         categoriesRecyclerView.adapter = CategoriesAdapter(getCategories())
 
-        return binding.root
+        return view
     }
 
     private fun getRecommendedMovies(): List<Movie> {
@@ -52,7 +51,6 @@ class HomeFragment : Fragment() {
         }
     }
 
-
     private fun getCategories(): List<Category> {
         return listOf(
             Category("Thriller", R.drawable.ic_launcher_foreground),
@@ -62,4 +60,3 @@ class HomeFragment : Fragment() {
         )
     }
 }
-
